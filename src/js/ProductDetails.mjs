@@ -21,7 +21,6 @@ export default class ProductDetails {
     this.productdisplaytemplate(this.product);
   }
   productdisplaytemplate(product){
-    document.title = "Sleep Outside | " + product.NameWithoutBrand;
     document.querySelector("h3").textContent = product.Brand.Name;
     document.querySelector("h2").textContent = product.NameWithoutBrand;
     document.querySelector("img.divider").src = product.Image;
