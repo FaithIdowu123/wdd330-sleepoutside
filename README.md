@@ -25,4 +25,4 @@ _BYU-Pathway Worldwide improves lives through access to spiritually based, onlin
 
 
 
-Netlify link: https://sleepoutsidet3.netlify.app/
+Netlify link: https://sleep-outside-3.netlify.app/
