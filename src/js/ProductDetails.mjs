@@ -1,4 +1,5 @@
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import ProductData from "./ProductData.mjs";
 
 export default class ProductDetails {
   constructor(productId, dataSource) {
@@ -8,6 +9,8 @@ export default class ProductDetails {
   }
   async init() {
     this.product = await this.dataSource.findProductById(this.productId);
+    console.log("Loaded product:", this.product);
+
     this.renderProductDetails()
     document.getElementById('addToCart')
     .addEventListener('click', this.addProductToCart.bind(this));
@@ -18,17 +21,18 @@ export default class ProductDetails {
     setLocalStorage("so-cart", cartItems);
   }
   renderProductDetails() {
-    this.productdisplaytemplate(this.product);
+    productdisplaytemplate(this.product);
   }
-  productdisplaytemplate(product){
-    document.querySelector("h3").textContent = product.Brand.Name;
-    document.querySelector("h2").textContent = product.NameWithoutBrand;
-    document.querySelector("img.divider").src = product.Image;
-    document.querySelector("img.divider").alt = product.NameWithoutBrand;
-    document.querySelector(".product-card__price").textContent = product.FinalPrice;
-    document.querySelector(".product__color").textContent = product.Colors.ColorName;
-    document.querySelector(".product__description").innerHTML = product.DescriptionHtmlSimple;
-    document.getElementById("addToCart").dataset.id = product.Id;
-  }
+ 
   
+}
+function productdisplaytemplate(product){
+  document.querySelector("h3").textContent = product.Brand.Name;
+  document.querySelector("h2").textContent = product.NameWithoutBrand;
+  document.querySelector("img.divider").src = product.Image;
+  document.querySelector("img.divider").alt = product.NameWithoutBrand;
+  document.querySelector(".product-card__price").textContent = product.FinalPrice;
+  document.querySelector(".product__color").textContent = product.Colors.ColorName;
+  document.querySelector(".product__description").innerHTML = product.DescriptionHtmlSimple;
+  document.getElementById("addToCart").dataset.id = product.Id;
 }

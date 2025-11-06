@@ -1,5 +1,7 @@
 import { getLocalStorage } from "./utils.mjs";
 
+let totalPrice = 0;
+
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
@@ -7,6 +9,7 @@ function renderCartContents() {
 }
 
 function cartItemTemplate(item) {
+  totalPrice += item.FinalPrice;
   const newItem = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
     <img
@@ -26,3 +29,4 @@ function cartItemTemplate(item) {
 }
 
 renderCartContents();
+document.querySelector(".cart-total").textContent = "Total: $" + totalPrice;
