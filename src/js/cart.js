@@ -29,4 +29,5 @@ function cartItemTemplate(item) {
 }
 
 renderCartContents();
-document.querySelector(".cart-total").textContent = "Total: $" + totalPrice;
+document.querySelector(".cart-total").textContent =
+  "Total: $" + totalPrice.toFixed(2);
