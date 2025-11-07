@@ -25,7 +25,7 @@ function cartItemTemplate(item) {
   <p id=#${item.Id}>X</p>
   <p class="cart-card__price">$${item.FinalPrice}</p>
 </li>`;
-
+  const ex = document.querySelector(`#${CSS.escape(item.Id)}`);
   return newItem;
 }
 
