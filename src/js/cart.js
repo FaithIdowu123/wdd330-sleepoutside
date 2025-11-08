@@ -46,6 +46,19 @@ function checkId(evt) {
       // renderListWithTemplate(element, this.element, cart)
 
       console.log("element matches!")
+
+
+      // The following code is the add item to so-cart.
+
+
+      // addProductToCart();
+      
+      // function addProductToCart() {
+      //   const cartItems = getLocalStorage("so-cart") || [];
+      //   cartItems.push(element);
+      //   setLocalStorage("so-cart", cartItems);
+      // };
+
     }
   });
 }
