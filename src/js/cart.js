@@ -31,3 +31,11 @@ function cartItemTemplate(item) {
 
 renderCartContents();
 document.querySelector(".cart-total").textContent = "Total: $" + totalPrice;
+
+const listItems = document.querySelector(".product-list").querySelectorAll("li");
+listItems.forEach(x => {
+  x.addEventListener("click", () => {
+    console.log("you win!");
+  });
+})
+const an = document.querySelector(".cart-card divider");
