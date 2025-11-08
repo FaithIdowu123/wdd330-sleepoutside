@@ -35,7 +35,13 @@ document.querySelector(".cart-total").textContent = "Total: $" + totalPrice;
 const listItems = document.querySelector(".product-list").querySelectorAll("li");
 listItems.forEach(x => {
   x.addEventListener("click", () => {
-    console.log("you win!");
+
+    const x1 = document.querySelectorAll("p")[2];
+    const items = getLocalStorage("so-cart")
+    console.log(x);
+    console.log(x1);
+    
+   console.log("you win!")
   });
 })
 const an = document.querySelector(".cart-card divider");
