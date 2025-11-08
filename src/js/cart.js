@@ -1,7 +1,7 @@
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage, renderListWithTemplate, setLocalStorage } from "./utils.mjs";
 
 let totalPrice = 0;
-
+let arrayIndex = -1;
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
@@ -10,6 +10,7 @@ function renderCartContents() {
 
 function cartItemTemplate(item) {
   totalPrice += item.FinalPrice;
+  arrayIndex += 1;
   const newItem = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
     <img
@@ -23,6 +24,7 @@ function cartItemTemplate(item) {
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
   <p class="cart-card__quantity">qty: 1</p>
   <p id="${item.Id}">X</p>
+  <p id="${item.arrayIndex}"</p>
   <p class="cart-card__price">$${item.FinalPrice}</p>
 </li>`;
   const ex = document.querySelector(`#${CSS.escape(item.Id)}`);
@@ -32,16 +34,21 @@ function cartItemTemplate(item) {
 renderCartContents();
 document.querySelector(".cart-total").textContent = "Total: $" + totalPrice;
 
-const listItems = document.querySelector(".product-list").querySelectorAll("li");
-listItems.forEach(x => {
-  x.addEventListener("click", () => {
+function checkId(evt) {
 
-    const x1 = document.querySelectorAll("p")[2];
-    const items = getLocalStorage("so-cart")
-    console.log(x);
-    console.log(x1);
-    
-   console.log("you win!")
+
+  let cart = JSON.parse(localStorage.getItem("so-cart"));
+  cart.forEach(element => {
+    if (element.Id === evt.target.id) {
+      // console.log(element)
+      // element.innerHTML = "";
+      // setLocalStorage("so.cart", element)
+      // renderListWithTemplate(element, this.element, cart)
+
+      console.log("element matches!")
+    }
   });
-})
+}
+
+const listItems = document.querySelector(".product-list").addEventListener("click", checkId)
 const an = document.querySelector(".cart-card divider");
