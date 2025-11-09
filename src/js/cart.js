@@ -49,6 +49,15 @@ function checkId(evt) {
 
 
       // The following code is the add item to so-cart.
+      console.log(cart.length)
+      cart = cart.filter(element => element.Id != evt.target.id)
+      console.log(cart.length)
+      setLocalStorage("so-cart", cart);
+      console.log(cart)
+      renderCartContents()
+      cartItemTemplate(cart)
+      updatePrice()
+      document.querySelector(".cart-total").textContent = "Total: $" + totalPrice;
 
 
       // addProductToCart();
