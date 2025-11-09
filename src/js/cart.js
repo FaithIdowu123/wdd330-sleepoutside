@@ -56,7 +56,7 @@ function checkId(evt) {
       console.log(cart)
       renderCartContents()
       cartItemTemplate(cart)
-      updatePrice()
+      
       document.querySelector(".cart-total").textContent = "Total: $" + totalPrice;
 
 
