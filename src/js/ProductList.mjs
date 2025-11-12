@@ -5,10 +5,11 @@ export default class ProductList{
         this.category = category;
         this.dataSource = dataSource;
         this.listElement = listElement;
+        console.log(category);
     }
 
     async init() {
-        const list = await this.dataSource.getData();
+        const list = await this.dataSource.getData(this.category);
         this.renderList(list);
     }
 
@@ -21,8 +22,8 @@ export default class ProductList{
 function productCardTemplate(product) {
   return `
     <li class="product-card">
-      <a href="product_pages/?product=${product.Id}">
-        <img src="${product.Image}" alt="${product.Name}">
+      <a href="/product_pages/?product=${product.Id}">
+        <img src="${product.Images.PrimaryLarge}" alt="${product.Name}">
         <h2>${product.Brand.Name}</h2>
         <h3>${product.Name}</h3>
         <p class="product-card__price">$${product.FinalPrice}</p>
