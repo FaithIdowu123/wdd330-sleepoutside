@@ -29,9 +29,9 @@ export default class ProductDetails {
 function productdisplaytemplate(product){
   document.querySelector("h3").textContent = product.Brand.Name;
   document.querySelector("h2").textContent = product.NameWithoutBrand;
-  document.querySelector("img.divider").src = product.Image;
+  document.querySelector("img.divider").src = product.Images.PrimaryLarge;
   document.querySelector("img.divider").alt = product.NameWithoutBrand;
-  document.querySelector(".product-card__price").textContent = product.FinalPrice;
+  document.querySelector(".product-card__price").textContent = "$" + product.FinalPrice;
   document.querySelector(".product__color").textContent = product.Colors.ColorName;
   document.querySelector(".product__description").innerHTML = product.DescriptionHtmlSimple;
   document.getElementById("addToCart").dataset.id = product.Id;
