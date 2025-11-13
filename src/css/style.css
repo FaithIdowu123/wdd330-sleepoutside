@@ -241,6 +241,34 @@ button {
   grid-column: 3;
 }
 
+.categories {
+  display: block;
+  margin-top: 30px;
+}
+
+.categories ul {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+}
+
+.categories ul li a {
+  text-decoration: none;
+  color: var(--dark-grey);
+  text-align: center;
+  font-size: var(--small-font);
+}
+
+.categories ul li a img{
+  width: 75px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
