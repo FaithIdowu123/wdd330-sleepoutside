@@ -41,7 +41,7 @@ loadHeaderFooter();
 function removeFromCart() {
   const buttons = document.querySelectorAll("#remove-cart");
   buttons.forEach((button) =>
-    button.addEventListener("click", function (event) { 
+    button.addEventListener("click", function (event) {
       const itemId = event.target.getAttribute("dataset");
       console.log(itemId);
       let cartItems = getLocalStorage("so-cart") || [];
@@ -51,7 +51,6 @@ function removeFromCart() {
       renderCartContents();
       document.querySelector(".cart-total").textContent =
         "Total: $" + totalPrice.toFixed(2);
-    })
+    }),
   );
 }
-
