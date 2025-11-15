@@ -1,20 +1,22 @@
 import { renderListWithTemplate } from "./utils.mjs";
 
 export default class ProductList{
-    constructor(category, dataSource, listElement) {
-        this.category = category;
-        this.dataSource = dataSource;
-        this.listElement = listElement;
-        console.log(category);
-    }
+  constructor(category, dataSource, listElement) {
+    this.category = category;
+    this.dataSource = dataSource;
+    this.listElement = listElement;
+  }
 
     async init() {
         const list = await this.dataSource.getData(this.category);
-        this.renderList(list);
+      this.renderList(list);
+      const navi = document.querySelector(".breadcrumb");
+      navi.textContent = `${this.category}->${list.length}`;
+
     }
 
-    renderList(list) {
-        renderListWithTemplate(productCardTemplate, this.listElement, list);
+  renderList(list) {
+    renderListWithTemplate(productCardTemplate, this.listElement, list);
     }
 
 }
