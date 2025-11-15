@@ -262,7 +262,7 @@ button {
   font-size: var(--small-font);
 }
 
-.categories ul li a img{
+.categories ul li a img {
   width: 75px;
   height: auto;
   display: block;
