@@ -10,6 +10,7 @@ export default class ProductDetails {
   async init() {
     this.product = await this.dataSource.findProductById(this.productId);
     console.log("Loaded product:", this.product);
+    document.querySelector(".breadcrumb").textContent = `${this.product.Category}`
 
     this.renderProductDetails()
     document.getElementById('addToCart')
