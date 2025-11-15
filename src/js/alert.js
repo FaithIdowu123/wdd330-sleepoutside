@@ -29,7 +29,7 @@ export default class Alert {
   }
 
   static loadAndShowAlerts() {
-    fetch('/alerts.json')
+    fetch('../json/alerts.json')
       .then(response => response.json())
       .then(alerts => {
         const alertInstance = new Alert(alerts);
