@@ -10,3 +10,8 @@ const dataSource = new ProductData();
 const listElement = document.querySelector('.product-list');
 const myList = new ProductList(category, dataSource, listElement);
 myList.init();
+
+
+
+const navi = document.querySelector('.breadcrumb');
+navi.textContent = `${category}->${category.length}`;
