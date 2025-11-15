@@ -10,7 +10,7 @@ export default class ProductList{
     async init() {
         const list = await this.dataSource.getData(this.category);
       this.renderList(list);
-      const navi = document.querySelector('.breadcrumb');
+      const navi = document.querySelector(".breadcrumb");
       navi.textContent = `${this.category}->${list.length}`;
 
     }

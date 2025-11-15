@@ -4,17 +4,17 @@ export default class Alert {
   }
 
   render() {
-    const alertSection = document.createElement('section');
-    alertSection.classList.add('alert-list');
+    const alertSection = document.createElement("section");
+    alertSection.classList.add("alert-list");
 
-    this.alerts.forEach(alertData => {
-      const alertP = document.createElement('p');
+    this.alerts.forEach((alertData) => {
+      const alertP = document.createElement("p");
       alertP.textContent = alertData.message;
       alertP.style.backgroundColor = alertData.background;
       alertP.style.color = alertData.color;
-      alertP.style.padding = '10px';
-      alertP.style.margin = '5px';
-      alertP.style.borderRadius = '5px';
+      alertP.style.padding = "10px";
+      alertP.style.margin = "5px";
+      alertP.style.borderRadius = "5px";
 
       alertSection.appendChild(alertP);
     });
@@ -23,19 +23,19 @@ export default class Alert {
   }
 
   insertToDOM() {
-    const mainElement = document.querySelector('main');
+    const mainElement = document.querySelector("main");
     const alertSection = this.render();
     mainElement.prepend(alertSection);
   }
 
   static loadAndShowAlerts() {
-    fetch('../json/alerts.json')
-      .then(response => response.json())
-      .then(alerts => {
+    fetch("../json/alerts.json")
+      .then((response) => response.json())
+      .then((alerts) => {
         const alertInstance = new Alert(alerts);
         alertInstance.insertToDOM();
       })
-      .catch(error => console.error('Error loading alerts file:', error));
+      .catch((error) => console.error("Error loading alerts file:", error));
   }
 }
 

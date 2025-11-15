@@ -13,8 +13,8 @@ export default class ProductDetails {
     document.querySelector(".breadcrumb").textContent = `${this.product.Category}`
 
     this.renderProductDetails()
-    document.getElementById('addToCart')
-    .addEventListener('click', this.addProductToCart.bind(this));
+    document.getElementById("addToCart")
+    .addEventListener("click", this.addProductToCart.bind(this));
   }
   addProductToCart() {
     const cartItems = getLocalStorage("so-cart") || [];

@@ -6,6 +6,6 @@ const dataSource = new ProductData();
 const element = document.querySelector(".product-list");
 loadHeaderFooter();
 
- const productList = new ProductList("tents", dataSource, element);
+const productList = new ProductList("tents", dataSource, element);
 
- productList.init();
+productList.init();
