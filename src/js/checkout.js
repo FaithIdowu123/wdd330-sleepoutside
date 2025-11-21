@@ -9,6 +9,7 @@ checkout.init();
 
 orderbtn.addEventListener("click", function (event) {
   if (cartItems.length === 0) {
+    window.scrollTo(0, 0);
     alert(
       "Your cart is empty. Please add items to your cart before placing an order.",
     );
@@ -17,7 +18,7 @@ orderbtn.addEventListener("click", function (event) {
     const form = document.forms[0];
     if (!form.checkValidity()) {
       form.reportValidity();
-      window.scrollTo(0, 0);
+      
       return;
     }
 
