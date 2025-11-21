@@ -18,7 +18,6 @@ orderbtn.addEventListener("click", () => {
     const form = document.forms[0];
     if (!form.checkValidity()) {
       form.reportValidity();
-
       return;
     }
 
