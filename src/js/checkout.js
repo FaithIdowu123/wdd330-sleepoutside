@@ -8,7 +8,6 @@ const checkout = new CheckoutProcess("so-cart", "#order-summary");
 checkout.init();
 
 orderbtn.addEventListener("click", function (event) {
-  event.preventDefault();
   if (cartItems.length === 0) {
     alert(
       "Your cart is empty. Please add items to your cart before placing an order.",
