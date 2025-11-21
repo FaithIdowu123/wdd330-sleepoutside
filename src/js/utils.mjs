@@ -66,17 +66,18 @@ export function alertMessage(message, scroll = true) {
   const alert = document.createElement('div');
 
   alert.classList.add('alert');
+
   alert.innerHTML = `
     <span class="alert-message">${message}</span>
     <span class="alert-close" role="button" aria-label="Close Alert">&times;</span>
   `;
-  
+  main.prepend(alert);
   document.querySelector(".alert-close").addEventListener('click', function(e) {
     const main = document.querySelector('main');
     main.removeChild(this);
   })
   
-  main.prepend(alert);
+ 
   if(scroll)
     window.scrollTo(0,0);
 }

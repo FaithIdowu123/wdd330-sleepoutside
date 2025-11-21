@@ -26,7 +26,7 @@ function packageItems(items) {
   return Items;
 }
 
-export default class CheckoutP1rocess {
+export default class CheckoutProcess {
     constructor(key, outputselector) {
         this.key = key;
         this.outputselector = outputselector;
@@ -99,6 +99,7 @@ export default class CheckoutP1rocess {
         try {
             const response = await ExternalService.checkout(order);
             localStorage.removeItem("so-cart"); 
+            window.location.href = "../checkout/success.html";
         } catch (err) {
             console.error("Checkout failed:", err);
             alertMessage(err.message || "Something went wrong, please try again.");

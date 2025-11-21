@@ -7,7 +7,8 @@ const orderbtn = document.querySelector("#placeorder");
 const checkout = new CheckoutProcess("so-cart", "#order-summary");
 checkout.init();
 
-orderbtn.addEventListener("click", () => {
+orderbtn.addEventListener("click", function (event) {
+  event.preventDefault();
   if (cartItems.length === 0) {
     window.scrollTo(0, 0);
     alert(
