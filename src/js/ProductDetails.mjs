@@ -1,5 +1,5 @@
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
-import ProductData from "./ProductData.mjs";
+import ExternalServices from "./ExternalServices.mjs";
 
 export default class ProductDetails {
   constructor(productId, dataSource) {
@@ -17,15 +17,36 @@ export default class ProductDetails {
     .addEventListener("click", this.addProductToCart.bind(this));
   }
   addProductToCart() {
-    const cartItems = getLocalStorage("so-cart") || [];
-    cartItems.push(this.product);
-    setLocalStorage("so-cart", cartItems);
+    let push = true
+    const alert = document.createElement("div");
+    alert.className = "alert";
+    try {
+      const cartItems = getLocalStorage("so-cart") || [];
+      cartItems.forEach(item => {
+        if (item.Id === this.product.Id) {
+          if (!item.quantity) {
+            item.quantity = 1;
+          }
+          item.quantity += 1;
+          alert.innerHTML = `<p>Product added to cart!</p>`;
+          push = false;
+        }
+      });
+      if (push == true){
+        cartItems.push(this.product);
+      }
+      setLocalStorage("so-cart", cartItems);
+      alert.innerHTML = `<p>Product added to cart!</p>`;
+    } catch (error) {
+      alert.innerHTML = `<p>Error adding product to cart.</p>`;
+    }
+    const main = document.querySelector("main");
+    main.prepend(alert);
+    window.scrollTo(0, 0);
   }
   renderProductDetails() {
     productdisplaytemplate(this.product);
   }
- 
-  
 }
 function productdisplaytemplate(product){
   document.querySelector("h3").textContent = product.Brand.Name;

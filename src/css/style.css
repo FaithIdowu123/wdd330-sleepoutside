@@ -204,12 +204,17 @@ button {
 }
 
 /* Start cart list card styles */
+.product-list {
+  gap: 20px;
+}
 .cart-card {
   display: grid;
   grid-template-columns: 25% auto 15%;
   font-size: var(--small-font);
-  /* max-height: 120px; */
+  max-height: 200px;
   align-items: center;
+  max-width: 500px;
+  padding: 10px;
 }
 
 .cart-card__image {
@@ -241,6 +246,22 @@ button {
   grid-column: 3;
 }
 
+#quantity-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  max-width: 70px;
+}
+
+#quantity-buttons button {
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+
 .categories {
   display: block;
   margin-top: 30px;
@@ -267,6 +288,82 @@ button {
   height: auto;
   display: block;
   margin: 0 auto;
+}
+
+#checkout {
+  text-decoration: none;
+}
+
+.checkoutdiv {
+  max-width: 500px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+#checkout button {
+  width: 200px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+#checkoutform {
+  background-color: rgb(87, 87, 87);
+  width: 100%;
+  max-width: 900px;
+  padding: 20px 0px;
+  border-radius: 20px;
+  h2 {
+    width: fit-content;
+    font-size: larger;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    color: white;
+  }
+  fieldset {
+    background-color: var(--light-grey);
+    margin: 0 auto;
+    width: 90%;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    h3 {
+      font-size: large;
+      margin-left: 5px;
+    }
+    label {
+      display: block;
+      margin-left: 10px;
+      font-size: 1.2rem;
+
+      input {
+        display: block;
+        width: 90%;
+        margin-bottom: 10px;
+        height: 30px;
+        border-radius: 6px;
+      }
+    }
+  }
+}
+
+#order-summary {
+  background-color: rgb(87, 87, 87);
+  max-width: 500px;
+  padding: 20px 0px;
+  margin-top: 20px;
+  border-radius: 20px;
+  color: white;
+  margin-bottom: 10px;
+
+  h2 {
+    font-size: large;
+    margin-left: 5px;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin-left: 10px;
+  }
 }
 
 @media screen and (min-width: 500px) {
