@@ -54,7 +54,7 @@ function productdisplaytemplate(product){
   document.querySelector("img.divider").src = product.Images.PrimaryLarge;
   document.querySelector("img.divider").alt = product.NameWithoutBrand;
   document.querySelector(".product-card__old").textContent = "Regular Price: $" + product.SuggestedRetailPrice;
-  document.querySelector(".product-card__discount").textContent = "Amount Saved: $" + (product.SuggestedRetailPrice - product.FinalPrice).toFixed(2);
+  document.querySelector(".product-card__discount").textContent = "🚩Amount Saved: $" + (product.SuggestedRetailPrice - product.FinalPrice).toFixed(2);
   document.querySelector(".product-card__price").textContent = "Sale Price: $" + product.FinalPrice;
   document.querySelector(".product__color").textContent = product.Colors.ColorName;
   document.querySelector(".product__description").innerHTML = product.DescriptionHtmlSimple;
