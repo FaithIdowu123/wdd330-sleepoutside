@@ -11,7 +11,7 @@ export default class ProductDetails {
     this.product = await this.dataSource.findProductById(this.productId);
     console.log("Loaded product:", this.product);
     document.querySelector(".breadcrumb").textContent = `${this.product.Category}`
-
+  
     this.renderProductDetails()
     document.getElementById("addToCart")
     .addEventListener("click", this.addProductToCart.bind(this));
@@ -53,7 +53,9 @@ function productdisplaytemplate(product){
   document.querySelector("h2").textContent = product.NameWithoutBrand;
   document.querySelector("img.divider").src = product.Images.PrimaryLarge;
   document.querySelector("img.divider").alt = product.NameWithoutBrand;
-  document.querySelector(".product-card__price").textContent = "$" + product.FinalPrice;
+  document.querySelector(".product-card__old").textContent = "Regular Price: $" + product.SuggestedRetailPrice;
+  document.querySelector(".product-card__discount").textContent = "Amount Saved: $" + (product.SuggestedRetailPrice - product.FinalPrice).toFixed(2);
+  document.querySelector(".product-card__price").textContent = "Sale Price: $" + product.FinalPrice;
   document.querySelector(".product__color").textContent = product.Colors.ColorName;
   document.querySelector(".product__description").innerHTML = product.DescriptionHtmlSimple;
   document.getElementById("addToCart").dataset.id = product.Id;
