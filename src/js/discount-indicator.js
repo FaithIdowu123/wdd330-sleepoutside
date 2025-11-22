@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const productList = document.querySelector(".product-list");
 
   const observer = new MutationObserver(() => {
-    document.querySelectorAll(".product-card").forEach(card => {
+    document.querySelectorAll(".product-card").forEach((card) => {
       const priceElement = card.querySelector(".product-card__price");
 
       if (!priceElement) return;
@@ -16,7 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (finalPrice < suggestedPrice) {
         card.classList.add("highlight");
 
-        const discountPercentage = ((suggestedPrice - finalPrice) / suggestedPrice * 100).toFixed(0);
+        const discountPercentage = (
+          ((suggestedPrice - finalPrice) / suggestedPrice) *
+          100
+        ).toFixed(0);
 
         let discountLabel = card.querySelector(".discount-label");
         if (!discountLabel) {
